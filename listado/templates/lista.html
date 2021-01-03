@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+</head>
+<body>
+    {% load crispy_forms_tags %}
+    {% if listado  %}
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">nombre</th>
+                                <th scope="col">opinion</th>
+                                <th scope="col">email</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {% for listado in listado %}
+                            <tr>
+                                <th scope="row">{{ listado.id }}</th>
+                                <td>{{ listado.nombre }}</td>
+                                <td> {{ listado.opinion }}</td>
+                                <td> {{ listado.email }}</td>
+                            
+                            </tr>
+                            {% endfor %}
+                            </tr>
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <a href="/" class="btn btn-primary">volver</a>
+</body>
+</html>
